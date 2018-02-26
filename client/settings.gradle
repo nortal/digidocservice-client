@@ -1,0 +1,9 @@
+include 'ws', 'card', 'jdigidoc', 'digidoc4j'
+
+rootProject.children.each {
+	it.name = getName('sk-', it.name, '-client')
+}
+
+def getName(prefix, name, suffix) {
+	return prefix + name + suffix
+}

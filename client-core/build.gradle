@@ -1,0 +1,94 @@
+configurations {
+	xjc
+	jaxws
+	provided
+}
+
+sourceSets {
+	main {
+		java {
+			srcDirs += 'gen-src/main/java'
+		}
+	}
+}
+
+dependencies {
+	compile project(':sk-common')
+	compile 'commons-beanutils:commons-beanutils:1.9.2'
+	compile 'commons-io:commons-io:2.4'
+	//compile 'org.bouncycastle:bcprov-jdk15on:1.52'
+	//compile 'org.bouncycastle:bcpkix-jdk15on:1.52'
+	//compile 'org.apache.santuario:xmlsec:2.0.5'
+	
+	// XJC task
+	xjc 'javax.xml.bind:jaxb-api:2.2.11'
+	xjc 'com.sun.xml.bind:jaxb-core:2.2.11'
+	xjc 'com.sun.xml.bind:jaxb-impl:2.2.11'
+	xjc 'com.sun.xml.bind:jaxb-xjc:2.2.11'
+}
+
+task xjc {
+	ext.destDir = file('gen-src/main/java')
+	ext.destXsd = 'src/main/resources/bdoc.xsd'
+
+	doFirst {
+		project.ant {
+			taskdef name: 'xjc', classname: 'com.sun.tools.xjc.XJCTask', classpath: configurations.xjc.asPath
+			destDir.mkdirs()
+			
+			xjc(destdir: destDir, schema: destXsd, package: 'com.nortal.sk.client.model') {
+				produces(dir: destDir, includes: '**/*.java')
+			}
+		}
+	}
+}
+
+compileJava {
+	dependsOn xjc
+}
+
+subprojects {
+	apply plugin: 'java'
+	apply plugin: 'eclipse'
+
+	group = 'com.nortal.sk'
+	version = '1.0-SNAPSHOT'
+	sourceCompatibility = 1.7
+
+	configurations {
+		provided
+		//compile.exclude group: 'commons-logging', module: 'commons-logging'
+	}
+	
+	sourceSets {
+		main.compileClasspath += configurations.provided
+		test.compileClasspath += configurations.provided
+		test.runtimeClasspath += configurations.provided
+	}
+	
+	eclipse.project {
+		natures 'org.springsource.ide.eclipse.gradle.core.nature'
+	}
+	
+	eclipse.classpath {
+		plusConfigurations += [configurations.provided]
+		defaultOutputDir = file('build')
+	}
+	
+	task jarSources(type:Jar){
+		from sourceSets.main.allSource
+		classifier = 'source'
+	}
+	
+	dependencies {
+		// Tests
+		testCompile 'junit:junit:4.12'
+		
+		compile fileTree(dir: 'ext-lib', include: ['*.jar'])
+	}
+
+	repositories {
+		mavenCentral()
+		mavenLocal()
+	}
+}

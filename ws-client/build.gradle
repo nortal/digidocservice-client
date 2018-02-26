@@ -1,0 +1,6 @@
+dependencies {
+	compile project(':sk-ws')
+	compile project(':sk-client-core')
+	
+	//compile 'org.springframework:spring-context:4.2.1.RELEASE'
+}

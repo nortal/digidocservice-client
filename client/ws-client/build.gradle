@@ -1,0 +1,8 @@
+dependencies {
+	compile project(':sk-ws')
+	compile project(':sk-core')
+	
+	compile 'org.apache.santuario:xmlsec:2.0.5'
+	
+	compile 'org.springframework:spring-context:4.2.1.RELEASE'
+}

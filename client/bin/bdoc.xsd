@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="hashcodes" type="hashcodesType" />
+	<xs:complexType name="fileEntryType">
+		<xs:attribute name="full-path" type="xs:string" use="required" />
+		<xs:attribute name="hash" type="xs:string" use="required" />
+		<xs:attribute name="size" type="xs:long" use="required" />
+	</xs:complexType>
+	<xs:complexType name="hashcodesType">
+		<xs:sequence>
+			<xs:element name="file-entry" type="fileEntryType" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

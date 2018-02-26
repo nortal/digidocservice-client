@@ -1,0 +1,7 @@
+/build
+/.settings
+/.classpath
+/.project
+/gen-src/
+/digidoc4j-ext-lib/
+/jdigidoc-ext-lib/

@@ -1,0 +1,73 @@
+configurations {
+	xjc
+	jaxws
+	provided
+}
+
+sourceSets {
+	main {
+		java {
+			srcDirs += 'gen-src/main/java'
+		}
+	}
+}
+
+dependencies {
+	compile project(':sk-common')
+
+	// XJC task
+	xjc 'javax.xml.bind:jaxb-api:2.2.11'
+	xjc 'com.sun.xml.bind:jaxb-core:2.2.11'
+	xjc 'com.sun.xml.bind:jaxb-impl:2.2.11'
+	xjc 'com.sun.xml.bind:jaxb-xjc:2.2.11'
+	
+	jaxws 'com.sun.xml.ws:jaxws-tools:2.2.10'
+}
+
+task xjc {
+	ext.destDir = file('gen-src/main/java')
+	ext.wsdl = 'http://www.sk.ee/DigiDocService/DigiDocService_2_3.wsdl'
+
+	doFirst {
+		project.ant {
+			taskdef name: 'xjc', classname: 'com.sun.tools.xjc.XJCTask', classpath: configurations.xjc.asPath
+			destDir.mkdirs()
+			
+			xjc(destdir: destDir, schema: wsdl, package: 'com.nortal.sk.ws.model') {
+				arg(value: '-wsdl')
+				produces(dir: destDir, includes: '**/*.java')
+			}
+		}
+	}
+}
+
+task wsimport {
+	ext.destDir = file('gen-src/main/java')
+	ext.destWsdl = file('src/main/resources/DigiDocService_2_3.wsdl')
+	ext.destPackage = 'com.nortal.sk.ws.model'
+
+	doLast {
+		ant {
+			taskdef(name: 'wsimport', classname: 'com.sun.tools.ws.ant.WsImport', classpath: configurations.jaxws.asPath)
+			destDir.mkdirs()
+			
+			wsimport(
+				keep: true,
+				sourcedestdir: destDir,
+				extension: 'true',
+				verbose: 'true',
+				quiet: 'false',
+				package: destPackage,
+				xnocompile: 'true',
+				wsdl: destWsdl) {
+				xjcarg(value: '-XautoNameResolution')
+			}
+		}
+	}
+}
+
+
+compileJava {
+	// dependsOn xjc
+	dependsOn wsimport
+}
