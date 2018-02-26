@@ -1,4 +1,4 @@
-include 'common', 'ws', 'client-core', 'ws-client', 'card-client-core', 'jdigidoc-client', 'digidoc4j-client'
+include 'common', 'ws', 'client-core', 'ws-client', 'card-client-core', 'digidoc4j-client'
 
 rootProject.children.each {
 	it.name = 'sk-' + it.name
