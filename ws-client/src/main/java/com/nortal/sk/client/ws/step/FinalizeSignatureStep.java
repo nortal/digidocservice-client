@@ -9,6 +9,9 @@ import com.nortal.sk.ws.model.FinalizeSignatureReq;
 import com.nortal.sk.ws.model.FinalizeSignatureReqImpl;
 import com.nortal.sk.ws.model.PrepareSignatureRsp;
 
+/**
+ * @author Lauri Lättemäe <lauri.lattemae@nortal.com>
+ */
 public class FinalizeSignatureStep extends AbstractWsStep<WsSignProcessor, FinalizeSignatureReq> {
 
     @Override

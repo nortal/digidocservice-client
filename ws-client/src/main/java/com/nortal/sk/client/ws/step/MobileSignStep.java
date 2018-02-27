@@ -6,6 +6,9 @@ import com.nortal.sk.common.model.GeneralRsp;
 import com.nortal.sk.ws.model.MobileSignReq;
 import com.nortal.sk.ws.model.MobileSignReqImpl;
 
+/**
+ * @author Lauri Lättemäe <lauri.lattemae@nortal.com>
+ */
 public class MobileSignStep extends AbstractWsStep<WsSignProcessor, MobileSignReq> {
     @Override
     public StepCodeEnum getCode() {

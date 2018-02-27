@@ -7,6 +7,9 @@ import com.nortal.sk.common.model.GeneralReq;
 import com.nortal.sk.common.model.GeneralRsp;
 import com.nortal.sk.common.model.StatusRsp;
 
+/**
+ * @author Lauri Lättemäe <lauri.lattemae@nortal.com>
+ */
 public abstract class AbstractStep<T extends Processor<?>, V extends GeneralReq> implements Step {
     private V req;
 

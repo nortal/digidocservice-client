@@ -10,6 +10,9 @@ import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.lang3.StringUtils;
 
+/**
+ * @author Lauri Lättemäe <lauri.lattemae@nortal.com>
+ */
 public class SkUtils {
     private SkUtils() {
     }

@@ -55,7 +55,7 @@ public interface SkWs {
      * @param sesscode
      * @param format
      */
-    SignedDocInfoRsp createSignedDoc(int sesscode, String format, String version);
+    SignedDocInfoRsp createSignedDoc(int sesscode, String format, String version, String signingProfile);
 
     /**
      * 8.3 CreateSignedDoc

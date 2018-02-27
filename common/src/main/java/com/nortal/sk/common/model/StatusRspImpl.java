@@ -2,6 +2,9 @@ package com.nortal.sk.common.model;
 
 import com.nortal.sk.common.constant.StatusEnum;
 
+/**
+ * @author Lauri Lättemäe <lauri.lattemae@nortal.com>
+ */
 public class StatusRspImpl implements StatusRsp {
     private String status;
 

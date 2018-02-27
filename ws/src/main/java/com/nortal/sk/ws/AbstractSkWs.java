@@ -139,11 +139,11 @@ public abstract class AbstractSkWs implements SkWs {
     }
 
     @Override
-    public SignedDocInfoRsp createSignedDoc(int sesscode, String format, String version) {
+    public SignedDocInfoRsp createSignedDoc(int sesscode, String format, String version, String signingProfile) {
         Holder<String> status = new Holder<>();
         Holder<SignedDocInfo> signedDocInfo = new Holder<>();
 
-        getPort().createSignedDoc(sesscode, format, version, null, status, signedDocInfo);
+        getPort().createSignedDoc(sesscode, format, version, signingProfile, status, signedDocInfo);
 
         SignedDocInfoRsp rsp = new SignedDocInfoRsp();
         rsp.setStatus(status.value);
@@ -153,7 +153,7 @@ public abstract class AbstractSkWs implements SkWs {
 
     @Override
     public SignedDocInfoRsp createSignedDoc(CreateSignedDocReq req) {
-        return createSignedDoc(req.getSesscode(), req.getFormat(), req.getVersion());
+        return createSignedDoc(req.getSesscode(), req.getFormat(), req.getVersion(), req.getSigningProfile());
     }
 
     @Override

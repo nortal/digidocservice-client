@@ -8,6 +8,9 @@ import com.nortal.sk.client.processor.StateHolder;
 import com.nortal.sk.ws.model.CheckCertificateReq;
 import com.nortal.sk.ws.model.CheckCertificateRsp;
 
+/**
+ * @author Lauri Lättemäe <lauri.lattemae@nortal.com>
+ */
 public interface SkWsClient extends SkClient<SignDataModel> {
     CheckCertificateRsp checkCertificate(CheckCertificateReq req);
 

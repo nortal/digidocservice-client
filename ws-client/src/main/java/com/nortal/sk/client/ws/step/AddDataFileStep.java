@@ -15,6 +15,9 @@ import com.nortal.sk.ws.model.AddDataFileReq;
 import com.nortal.sk.ws.model.AddDataFileReqImpl;
 import com.nortal.sk.ws.model.SignedDocInfoRsp;
 
+/**
+ * @author Lauri Lättemäe <lauri.lattemae@nortal.com>
+ */
 public class AddDataFileStep extends AbstractWsStep<WsSignProcessor, AddDataFileReq> {
 
     @Override

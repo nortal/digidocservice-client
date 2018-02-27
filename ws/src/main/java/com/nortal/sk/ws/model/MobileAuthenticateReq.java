@@ -2,6 +2,9 @@ package com.nortal.sk.ws.model;
 
 import com.nortal.sk.common.model.GeneralReq;
 
+/**
+ * @author Lauri Lättemäe <lauri.lattemae@nortal.com>
+ */
 public interface MobileAuthenticateReq extends GeneralReq {
     String getIdCode();
 

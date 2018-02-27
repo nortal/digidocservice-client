@@ -9,6 +9,9 @@ import com.nortal.sk.ws.model.SesscodeReq;
 import com.nortal.sk.ws.model.SesscodeReqImpl;
 import com.nortal.sk.ws.model.SignedDocRsp;
 
+/**
+ * @author Lauri Lättemäe <lauri.lattemae@nortal.com>
+ */
 public class SignedDocStep extends AbstractWsStep<WsSignProcessor, SesscodeReq> {
     @Override
     public StepCodeEnum getCode() {

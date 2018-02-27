@@ -2,6 +2,9 @@ package com.nortal.sk.ws.model;
 
 import com.nortal.sk.common.model.StatusRspImpl;
 
+/**
+ * @author Lauri Lättemäe <lauri.lattemae@nortal.com>
+ */
 public class MobileAuthenticateStatusRsp extends StatusRspImpl {
     private String signature;
 

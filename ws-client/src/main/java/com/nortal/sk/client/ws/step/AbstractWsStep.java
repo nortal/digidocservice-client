@@ -11,6 +11,9 @@ import com.nortal.sk.common.model.GeneralRsp;
 import com.nortal.sk.ws.model.SesscodeReq;
 import com.nortal.sk.ws.model.SesscodeRsp;
 
+/**
+ * @author Lauri Lättemäe <lauri.lattemae@nortal.com>
+ */
 public abstract class AbstractWsStep<T extends WsProcessor<?>, V extends GeneralReq> extends AbstractStep<T, V> {
     @Override
     @SuppressWarnings("unchecked")

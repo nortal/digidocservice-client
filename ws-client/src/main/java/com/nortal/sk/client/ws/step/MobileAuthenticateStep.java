@@ -7,6 +7,9 @@ import com.nortal.sk.common.model.GeneralRsp;
 import com.nortal.sk.ws.model.MobileAuthenticateReq;
 import com.nortal.sk.ws.model.MobileAuthenticateReqImpl;
 
+/**
+ * @author Lauri Lättemäe <lauri.lattemae@nortal.com>
+ */
 public class MobileAuthenticateStep extends AbstractWsStep<WsProcessor<StateHolder>, MobileAuthenticateReq> {
     @Override
     public StepCodeEnum getCode() {

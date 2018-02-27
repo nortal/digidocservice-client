@@ -1,5 +1,8 @@
 package com.nortal.sk.ws.model;
 
+/**
+ * @author Lauri Lättemäe <lauri.lattemae@nortal.com>
+ */
 public class StatusInfoReqImpl extends SesscodeReqImpl implements StatusInfoReq {
     private boolean returnDocInfo;
     private boolean waitSignature;

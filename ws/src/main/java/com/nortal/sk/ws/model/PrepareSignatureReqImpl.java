@@ -4,6 +4,9 @@ import org.apache.commons.lang3.StringUtils;
 
 import com.nortal.sk.ws.constant.SigningProfileEnum;
 
+/**
+ * @author Lauri Lättemäe <lauri.lattemae@nortal.com>
+ */
 public class PrepareSignatureReqImpl extends SesscodeReqImpl implements PrepareSignatureReq {
     private String signersCertificate = StringUtils.EMPTY;
     private String signersTokenId = StringUtils.EMPTY;

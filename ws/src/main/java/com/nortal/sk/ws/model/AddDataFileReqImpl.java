@@ -3,6 +3,9 @@ package com.nortal.sk.ws.model;
 import com.nortal.sk.ws.constant.ContentTypeEnum;
 import com.nortal.sk.ws.constant.DigestTypeEnum;
 
+/**
+ * @author Lauri Lättemäe <lauri.lattemae@nortal.com>
+ */
 public class AddDataFileReqImpl extends SesscodeReqImpl implements AddDataFileReq {
     private String fileName;
     private String mimeType;

@@ -16,9 +16,6 @@ dependencies {
 	compile project(':sk-common')
 	compile 'commons-beanutils:commons-beanutils:1.9.2'
 	compile 'commons-io:commons-io:2.4'
-	//compile 'org.bouncycastle:bcprov-jdk15on:1.52'
-	//compile 'org.bouncycastle:bcpkix-jdk15on:1.52'
-	//compile 'org.apache.santuario:xmlsec:2.0.5'
 	
 	// XJC task
 	xjc 'javax.xml.bind:jaxb-api:2.2.11'

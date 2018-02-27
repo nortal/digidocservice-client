@@ -8,6 +8,13 @@ package com.nortal.sk.ws.model;
  */
 public interface CreateSignedDocReq extends SesscodeReq {
     /**
+     * This value is currently ignored and may be empty.
+     * 
+     * @return
+     */
+    String getSigningProfile();
+
+    /**
      * a format of a document container to be created (currently supported formats are DIGIDOC-XML 1.3 and BDOC 2.1)
      * 
      * @return

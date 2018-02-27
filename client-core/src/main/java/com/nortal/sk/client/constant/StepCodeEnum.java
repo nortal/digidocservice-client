@@ -2,6 +2,9 @@ package com.nortal.sk.client.constant;
 
 import com.nortal.sk.common.constant.GeneralConstant;
 
+/**
+ * @author Lauri Lättemäe <lauri.lattemae@nortal.com>
+ */
 // TODO: refacto to right modules
 public enum StepCodeEnum implements GeneralConstant {
     PREPARING,

@@ -24,7 +24,10 @@ import com.nortal.sk.client.processor.SignStateHolder;
 import com.nortal.sk.ws.SkWs;
 import com.nortal.sk.ws.constant.DigestTypeEnum;
 
-public class WsSignProcessorImpl extends WsProcessorImpl<SignStateHolder>implements WsSignProcessor {
+/**
+ * @author Lauri Lättemäe <lauri.lattemae@nortal.com>
+ */
+public class WsSignProcessorImpl extends WsProcessorImpl<SignStateHolder> implements WsSignProcessor {
     public WsSignProcessorImpl(SkWs wsClient) {
         super(wsClient);
     }

@@ -11,6 +11,9 @@ import com.nortal.sk.client.constant.StepCodeEnum;
 import com.nortal.sk.common.model.FaultRsp;
 import com.nortal.sk.common.model.GeneralRsp;
 
+/**
+ * @author Lauri Lättemäe <lauri.lattemae@nortal.com>
+ */
 // TODO: maybe interface?
 public class StateHolder {
     private String id = UUID.randomUUID().toString();

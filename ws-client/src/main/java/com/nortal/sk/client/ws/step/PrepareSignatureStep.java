@@ -6,6 +6,9 @@ import com.nortal.sk.common.model.GeneralRsp;
 import com.nortal.sk.ws.model.PrepareSignatureReq;
 import com.nortal.sk.ws.model.PrepareSignatureReqImpl;
 
+/**
+ * @author Lauri Lättemäe <lauri.lattemae@nortal.com>
+ */
 public class PrepareSignatureStep extends AbstractWsStep<WsSignProcessor, PrepareSignatureReq> {
     @Override
     public StepCodeEnum getCode() {

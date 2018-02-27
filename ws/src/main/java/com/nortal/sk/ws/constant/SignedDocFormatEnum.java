@@ -4,6 +4,9 @@ import org.apache.commons.lang3.StringUtils;
 
 import com.nortal.sk.common.constant.GeneralConstant;
 
+/**
+ * @author Lauri Lättemäe <lauri.lattemae@nortal.com>
+ */
 public enum SignedDocFormatEnum implements GeneralConstant {
     BDOC("2.1"),
     DIGIDOC_XML("DIGIDOC-XML", "1.3");

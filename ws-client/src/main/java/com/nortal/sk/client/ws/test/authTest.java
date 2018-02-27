@@ -11,8 +11,8 @@ import com.nortal.sk.ws.model.MobileAuthenticateRsp;
 
 public class authTest {
 
-    private static String ID_CODE = "38002240211";
-    private static String PHONE_NO = "37200001";
+    private static String ID_CODE = "14212128025";
+    private static String PHONE_NO = "37200007";
 
     public static void main(String[] args) {
         try {

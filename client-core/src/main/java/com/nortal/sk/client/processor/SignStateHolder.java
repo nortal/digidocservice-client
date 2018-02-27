@@ -5,6 +5,9 @@ import java.util.Collection;
 
 import com.nortal.sk.client.model.FileModel;
 
+/**
+ * @author Lauri Lättemäe <lauri.lattemae@nortal.com>
+ */
 // TODO: maybe interface?
 public class SignStateHolder extends StateHolder {
     private Object container;

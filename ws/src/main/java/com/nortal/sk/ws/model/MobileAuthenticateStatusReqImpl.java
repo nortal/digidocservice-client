@@ -1,5 +1,8 @@
 package com.nortal.sk.ws.model;
 
+/**
+ * @author Lauri Lättemäe <lauri.lattemae@nortal.com>
+ */
 public class MobileAuthenticateStatusReqImpl extends SesscodeReqImpl implements MobileAuthenticateStatusReq {
     private boolean waitSignature;
 

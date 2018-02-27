@@ -28,6 +28,9 @@ import com.nortal.sk.ws.model.MobileAuthenticateReqImpl;
 import com.nortal.sk.ws.model.MobileSignReqImpl;
 import com.nortal.sk.ws.model.PrepareSignatureReqImpl;
 
+/**
+ * @author Lauri Lättemäe <lauri.lattemae@nortal.com>
+ */
 public class SimpleSkWsClient implements SkWsClient {
     private SkWs skWs;
 
@@ -47,11 +50,10 @@ public class SimpleSkWsClient implements SkWsClient {
 
     @Override
     public Processor<StateHolder> createSimpleAuthProcessor(MobileDataModel data) {
-        // @formatter:off
-        return createAuthProcessor()
-                  .step(MobileAuthenticateStep.of(MobileAuthenticateReqImpl.of(data.getIdCode(), data.getPhoneNo())))
-                  .step(new MobileAuthenticateStatusStep());
-        // @formatter:on
+    // @formatter:off
+    return createAuthProcessor().step(MobileAuthenticateStep.of(MobileAuthenticateReqImpl.of(data.getIdCode(),
+                                                                                             data.getPhoneNo()))).step(new MobileAuthenticateStatusStep());
+    // @formatter:on
     }
 
     @Override
@@ -65,28 +67,17 @@ public class SimpleSkWsClient implements SkWsClient {
         if (MobileSignDataModel.class.isAssignableFrom(data.getClass())) {
             MobileSignDataModel mData = (MobileSignDataModel) data;
 
-            // @formatter:off
-            return createSignProcessor()
-                    .step(new StartSessionStep())
-                    .step(new CreateSignedDocStep())
-                    .step(new AddDataFileStep())
-                    .step(MobileSignStep.of(MobileSignReqImpl.of(mData.getIdCode(), mData.getPhoneNo())))
-                    .step(new StatusInfoStep())
-                    .step(new SignedDocStep());
-            // @formatter:on
+      // @formatter:off
+      return createSignProcessor().step(new StartSessionStep()).step(new CreateSignedDocStep()).step(new AddDataFileStep()).step(MobileSignStep.of(MobileSignReqImpl.of(mData.getIdCode(),
+                                                                                                                                                                        mData.getPhoneNo()))).step(new StatusInfoStep()).step(new SignedDocStep());
+      // @formatter:on
         }
         else if (CardSignDataModel.class.isAssignableFrom(data.getClass())) {
             CardSignDataModel cData = (CardSignDataModel) data;
 
-            // @formatter:off
-            return createSignProcessor()
-                    .step(new StartSessionStep())
-                    .step(new CreateSignedDocStep())
-                    .step(new AddDataFileStep())
-                    .step(PrepareSignatureStep.of(PrepareSignatureReqImpl.of(cData.getCertHex())))
-                    .step(FinalizeSignatureStep.of(FinalizeSignatureReqImpl.of(cData.getSignatureValue())))
-                    .step(new SignedDocStep());
-            // @formatter:on
+      // @formatter:off
+      return createSignProcessor().step(new StartSessionStep()).step(new CreateSignedDocStep()).step(new AddDataFileStep()).step(PrepareSignatureStep.of(PrepareSignatureReqImpl.of(cData.getCertHex()))).step(FinalizeSignatureStep.of(FinalizeSignatureReqImpl.of(cData.getSignatureValue()))).step(new SignedDocStep());
+      // @formatter:on
         }
         else {
             throw new IllegalStateException("SimpleSkWsClient.createSimpleSignProcessor: unsupported data model type=" + data.getClass());

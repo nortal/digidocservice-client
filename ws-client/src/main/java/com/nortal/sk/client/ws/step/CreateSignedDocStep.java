@@ -8,6 +8,9 @@ import com.nortal.sk.common.model.StatusRspImpl;
 import com.nortal.sk.ws.model.CreateSignedDocReq;
 import com.nortal.sk.ws.model.CreateSignedDocReqImpl;
 
+/**
+ * @author Lauri Lättemäe <lauri.lattemae@nortal.com>
+ */
 public class CreateSignedDocStep extends AbstractWsStep<WsSignProcessor, CreateSignedDocReq> {
 
     @Override
