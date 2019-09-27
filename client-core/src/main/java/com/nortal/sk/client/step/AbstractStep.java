@@ -47,7 +47,7 @@ public abstract class AbstractStep<T extends Processor<?>, V extends GeneralReq>
 
     @Override
     public boolean isValid(StateHolder state) throws Exception {
-        return isValid(state.getResponse(getCode()));
+        return isValid((GeneralRsp) state.getResponse(getCode()));
     }
 
     @Override

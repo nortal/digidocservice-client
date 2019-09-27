@@ -14,6 +14,10 @@ sourceSets {
 
 dependencies {
 	compile project(':sk-common')
+	compile 'com.sun.activation:javax.activation:1.2.0'
+	compile 'javax.xml.ws:jaxws-api:2.3.1'
+	compile 'javax.jws:javax.jws-api:1.1'
+	compile 'com.sun.xml.ws:jaxws-rt:2.1.4'
 
 	// XJC task
 	xjc 'javax.xml.bind:jaxb-api:2.2.11'
